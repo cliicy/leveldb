@@ -155,8 +155,8 @@ db_bench_tree_db: doc/bench/db_bench_tree_db.o $(LIBRARY) $(TESTUTIL)
 db_bench_forestdb: doc/bench/db_bench_forestdb.o $(LIBRARY) $(TESTUTIL)
 	$(CXX) doc/bench/db_bench_forestdb.o $(LIBRARY) $(TESTUTIL) -o $@ $(LDFLAGS) /usr/local/lib/libforestdb.a
 
-db_bench_mdb: doc/bench/db_bench_mdb.o $(LIBRARY) $(TESTUTIL)
-	$(CXX) doc/bench/db_bench_mdb.o $(LIBRARY) $(TESTUTIL) -o $@ $(LDFLAGS) /usr/local/lib/liblmdb.a
+db_bench_mdb: doc/bench/db_bench_mdb.o $(LIBRARY) $(TESTUTIL) $(PLATFORM_LIBS)
+	$(CXX) doc/bench/db_bench_mdb.o $(LIBRARY) $(TESTUTIL) $(PLATFORM_LIBS) -o $@ $(LDFLAGS) /usr/local/lib/liblmdb.a
 
 db_bench_bdb: doc/bench/db_bench_bdb.o $(LIBRARY) $(TESTUTIL)
 	$(CXX) doc/bench/db_bench_bdb.o $(LIBRARY) $(TESTUTIL) -o $@ $(LDFLAGS) /usr/local/lib/libdb.a
